@@ -1,0 +1,3 @@
+1. bikin species jadi object class
+2. implementasi make range di math.py
+3. bikin fungsi untuk menghitung jarak antar species menggunakan ba > x > bb

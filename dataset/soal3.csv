@@ -1,0 +1,6 @@
+leaf width,leaf length,species,Shape
+2.7,	4.9,small-leaf,round
+3.2,	5.5,big-leaf,square
+2.9,	5.1,small-leaf,round
+3.4,	6.8,big-leaf,square
+3.1,	5.6,???,square

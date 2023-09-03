@@ -1,24 +1,31 @@
+from enum import Enum
+class species(Enum):
+    small_leaf = 1
+    big_leaf = 2
 class Daon:
-    def __init__(self, width = 0.0, length = 0.0, species = "", addition = None):
+    def __init__(self, width = "-", length = "-", species = "???", addition = None):
         self.width = width
         self.length = length
         self.species = species
-        self.addition = None
+        self.addition = addition
 
     def define_species(self):
         try:
             if self.width < 2.9 or self.length < 5.1:
-                self.species = "small-leaf"
+                self.species = species.small_leaf.name.replace("_", "-")
             elif self.width >= 2.9 and self.length >= 5.1:
-                self.species = "big-leaf"
-        except ValueError:
-            if ValueError == self.width and self.length < 5.1:
-                self.species = "small-leaf"
-            elif ValueError == self.width and self.length >= 5.1:
-                self.species = "big-leaf"
-            elif ValueError == self.length and self.width < 2.9:
-                self.species = "small-leaf"
-            elif ValueError == self.length and self.width >= 2.9:
-                self.species = "big-leaf"
+                self.species = species.big_leaf.name.replace("_", "-")
+        except:
+            if "-" == self.width and self.length < 5.1:
+                self.species = species.small_leaf.name.replace("_", "-")
+            if "-" == self.width and self.length > 5.1:
+                self.species = species.big_leaf.name.replace("_", "-")
+            if "-" == self.length and self.width < 2.9:
+                self.species = species.small_leaf.name.replace("_", "-")
+            if "-" == self.length and self.width >= 2.9:
+                self.species = species.big_leaf.name.replace("_", "-")
 
-
+    def tolist(self):
+        if self.addition != None:
+            return [self.width, self.length, self.species, self.addition]
+        return [self.width, self.length, self.species]

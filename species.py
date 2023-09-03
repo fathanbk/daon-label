@@ -1,4 +1,5 @@
 class Species :
-    def __init__(self, name, kingdom):
+    def __init__(self, name, atas, bawah):
         self.name = name
-        self.kingdom = kingdom
+        self.ba = atas
+        self.bb = bawah
