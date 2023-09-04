@@ -5,6 +5,11 @@ category = ['small number', 'big number']
     
 # make range number into category dynamically
 def make_range(numbers, category):
+    # print(numbers)
+    numbers.sort()
+    # numbers.append(math.inf)
+    # numbers.insert(0, 0.0)
+
     # find max and min number
     max_number = max(numbers)
     min_number = min(numbers)
@@ -23,16 +28,18 @@ def make_range(numbers, category):
     range_list = []
     for i in range(len(category)):
         if i == 0:
-            range_list.append([min_number, cat_range[i]])
+            range_list.append([0, numbers[i]])
+        elif i == 1:
+            range_list.append([numbers[i-1], cat_range[i]])
         elif i == len(category)-1:
-            range_list.append([cat_range[i-1], max_number])
+            range_list.append([cat_range[i-1], math.inf])
         else:
             range_list.append([cat_range[i-1], cat_range[i]])
 
     return range_list
 
-ranges = make_range(numbers, category)
-range1 = ranges[0]
-for i in range(int(range1[0]), int(range1[1]+1)):
-    print(i)
-print(make_range(numbers, category))
+# ranges = make_range(numbers, category)
+# range1 = ranges[0]
+# for i in range(int(range1[0]), int(range1[1]+1)):
+#     print(i)
+# print(make_range(numbers, category))
