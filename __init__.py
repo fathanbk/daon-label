@@ -1,7 +1,12 @@
 from leaf import Daon
 import pandas as dafa
 from IPython.display import display
+from species import Species
 
+# 1. Jika ada data baru, dengan kolom yang ada, bisa atau tidak menebak species data baru tersebut
+# 2. Jika ada data baru dan salah satu kolom dihilangkan, bisa atau tidak menebak species data baru tersebut
+# 3. Jika ada data baru dan ditambahkan lagi satu kolom untuk semua data yang ada, bisa atau tidak menebak species data baru tersebut
+# 4. Jika ada data baru dan juga golongan species baru, bisa atau tidak untuk menebak species data baru tersebut
 
 def labelling(data):
     temp = []
@@ -82,7 +87,7 @@ def main():
         header3 = data3.columns.tolist()
 
         temp3 = process_data(data3, header3)
-        print(temp3)
+        # print(temp3)
         daun3 = labelling(temp3.values.tolist())
         # print(daun3)
         res3 = dafa.DataFrame(columns=header3)
@@ -93,4 +98,22 @@ def main():
             res3.loc[len(res3)] = daun
             # print(daun)
         print(res3)
+    elif pilih == 4:
+        print("4. Jika ada data baru dan juga golongan species baru, bisa atau tidak untuk menebak species data baru tersebut")
+
+        species_list = [
+            Species('small-leaf', )
+        ]
+
+        data4 = dafa.read_csv(r'dataset/soal4.csv')
+        header4 = data4.columns.tolist()
+
+        temp4 = process_data(data4, header4)
+        daun4 = labelling(temp4.values.tolist())
+        res4 = dafa.DataFrame(columns=header4)
+        for daun in daun4:
+            daun.define_species()
+            daun = daun.tolist()
+            res4.loc[len(res4)] = daun
+        print(res4)
 main()

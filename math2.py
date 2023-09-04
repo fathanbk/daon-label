@@ -1,8 +1,8 @@
 import math
 
 numbers = [2.7, 2.9, 3.2, 3.4]
-category = [ 'small number', 'big number']
-
+category = ['small number', 'big number']
+    
 # make range number into category dynamically
 def make_range(numbers, category):
     # find max and min number
