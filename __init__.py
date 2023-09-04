@@ -30,7 +30,7 @@ def process_data(data, header):
 
 def menu():
     print("Studi Kasus: ")
-    print("1.  Jika ada data baru, dengan kolom yang ada, bisa atau tidak menebak species data baru tersebut")
+    print("1. Jika ada data baru, dengan kolom yang ada, bisa atau tidak menebak species data baru tersebut")
     print("2. Jika ada data baru dan salah satu kolom dihilangkan, bisa atau tidak menebak species data baru tersebut")
     print("3. Jika ada data baru dan ditambahkan lagi satu kolom untuk semua data yang ada, bisa atau tidak menebak species data baru tersebut")
     print("4. Jika ada data baru dan juga golongan species baru, bisa atau tidak untuk menebak species data baru tersebut")
