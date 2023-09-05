@@ -26,4 +26,7 @@ Cara menjalankan program :
     ```pip3 install -r requirements.txt```
 
 - Jalankan __init__.py dengan command : <br>
-    ```python __init__.py``` atau ```py __init__.py```
+    - Windows : <br>
+    ```py __init__.py``` or ```python __init__.py```
+    - Linux : <br>
+    ```python3 __init__.py```
