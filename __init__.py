@@ -37,8 +37,16 @@ def process_data(data, header):
    
     return data
 
+def print_list(list, sep, property = None):
+    for i in list:
+        if i != list[-1]:
+            if property != None:
+                print(i.property, end=sep)
+            else:
+                print(i, end=sep)
+
 def menu():
-    print("Studi Kasus: ")
+    print("\nStudi Kasus: ")
     print("1. Jika ada data baru, dengan kolom yang ada, bisa atau tidak menebak species data baru tersebut")
     print("2. Jika ada data baru dan salah satu kolom dihilangkan, bisa atau tidak menebak species data baru tersebut")
     print("3. Jika ada data baru dan ditambahkan lagi satu kolom untuk semua data yang ada, bisa atau tidak menebak species data baru tersebut")
@@ -53,23 +61,32 @@ def main():
     header = data.columns.tolist()
     res = process_data(data, header)
     # print(daon)
-    print("Data Awal:")
+    print("\nData Awal:")
     print(res)
     pilih = menu()
     if pilih == 1:
-        print("1.  Jika ada data baru, dengan kolom yang ada, bisa atau tidak menebak species data baru tersebut\n")
+        print("\n1.  Jika ada data baru, dengan kolom yang ada, bisa atau tidak menebak species data baru tersebut\n")
 
         species_list = [
             Species('small-leaf'),
             Species('big-leaf'),
         ]
 
+        print('List Spesies : ')
+        for i in species_list:
+            if i != species_list[-1]:
+                print(i.name, end=', ')
+            else:
+                print(i.name)
+
+        print()
+
         data1 = dafa.read_csv(r'dataset/soal1.csv')
 
         width = make_range(data1['leaf width'].tolist(), species_list)
         length = make_range(data1['leaf length'].tolist(), species_list)
-        # print(f"\nPembagian range lebar daun : {width}\n")
-        # print(f"Pembagian range panjang daun : {length}")
+        print(f"Pembagian range lebar daun : {width}\n")
+        print(f"Pembagian range panjang daun : {length}\n")
         # print(type(data1['leaf width'].tolist()[0]))
 
         for i in range(len(species_list)):
@@ -81,6 +98,11 @@ def main():
             species_list[i].min_area = species_list[i].min_length *  species_list[i].min_width
             # print(species_list[i].max_length)
 
+        species_df = dafa.DataFrame(columns=['name', 'min_length', 'max_length', 'min_width', 'max_width', 'min_area', 'max_area'])
+        for species in species_list:
+            species_df.loc[len(species_df)] = [species.name, species.min_length, species.max_length, species.min_width, species.max_width, species.min_area, species.max_area]
+        print(species_df)
+        print()
 
         header1 = data1.columns.tolist()
 
@@ -94,7 +116,7 @@ def main():
 
         print(res)
     elif pilih == 2:
-        print("2. Jika ada data baru dan salah satu kolom dihilangkan, bisa atau tidak menebak species data baru tersebut\n")
+        print("\n2. Jika ada data baru dan salah satu kolom dihilangkan, bisa atau tidak menebak species data baru tersebut\n")
         
         species_list = [
             Species('small-leaf'),
@@ -117,10 +139,18 @@ def main():
         # if data2['leaf length'].any() == False :
         #     length = make_range(data2['leaf length'].tolist(), species_list)
 
-        print(f"\nPembagian range lebar daun : {width}\n")
-        print(f"Pembagian range panjang daun : {length}")
-        print(type(data2['leaf width'].tolist()[0]))
+        print('List Spesies : ')
+        for i in species_list:
+            if i != species_list[-1]:
+                print(i.name, end=', ')
+            else:
+                print(i.name)
 
+        print()
+
+        print(f"Pembagian range lebar daun : {width}\n")
+        print(f"Pembagian range panjang daun : {length}")
+        print()
         for i in range(len(species_list)):
             if length != []:
                 species_list[i].max_length = length[i][1]
@@ -136,6 +166,7 @@ def main():
         for species in species_list:
             species_df.loc[len(species_df)] = [species.name, species.min_length, species.max_length, species.min_width, species.max_width, species.min_area, species.max_area]
         print(species_df)
+        print()
 
         header2 = data2.columns.tolist()
 
@@ -149,19 +180,28 @@ def main():
 
         print(res)
     elif pilih == 3:
-        print("3. Jika ada data baru dan ditambahkan lagi satu kolom untuk semua data yang ada, bisa atau tidak menebak species data baru tersebut\n")
+        print("\n3. Jika ada data baru dan ditambahkan lagi satu kolom untuk semua data yang ada, bisa atau tidak menebak species data baru tersebut\n")
 
         species_list = [
             Species('small-leaf'),
             Species('big-leaf'),
         ]
 
+        print('List Spesies : ')
+        for i in species_list:
+            if i != species_list[-1]:
+                print(i.name, end=', ')
+            else:
+                print(i.name)
+
+        print()
+
         data3 = dafa.read_csv(r'dataset/soal3.csv')
 
         width = make_range(data3['leaf width'].tolist(), species_list)
         length = make_range(data3['leaf length'].tolist(), species_list)
-        print(f"\nPembagian range lebar daun : {width}\n")
-        print(f"Pembagian range panjang daun : {length}")
+        print(f"Pembagian range lebar daun : {width}\n")
+        print(f"Pembagian range panjang daun : {length}\n")
         # print(type(data3['leaf width'].tolist()[0]))
 
         for i in range(len(species_list)):
@@ -173,6 +213,11 @@ def main():
             species_list[i].min_area = species_list[i].min_length *  species_list[i].min_width
             # print(species_list[i].max_length)
 
+        species_df = dafa.DataFrame(columns=['name', 'min_length', 'max_length', 'min_width', 'max_width', 'min_area', 'max_area'])
+        for species in species_list:
+            species_df.loc[len(species_df)] = [species.name, species.min_length, species.max_length, species.min_width, species.max_width, species.min_area, species.max_area]
+        print(species_df)
+        print()
 
         header3 = data3.columns.tolist()
 
@@ -189,7 +234,7 @@ def main():
             # print(daun)
         print(res3)
     elif pilih == 4:
-        print("4. Jika ada data baru dan juga golongan species baru, bisa atau tidak untuk menebak species data baru tersebut\n")
+        print("\n4. Jika ada data baru dan juga golongan species baru, bisa atau tidak untuk menebak species data baru tersebut\n")
 
         species_list = [
             Species('smaller-leaf'),
@@ -199,12 +244,21 @@ def main():
             Species('bigger-leaf'),
         ]
 
+        print('List Spesies : ')
+        for i in species_list:
+            if i != species_list[-1]:
+                print(i.name, end=', ')
+            else:
+                print(i.name)
+
+        print()
+
         data4 = dafa.read_csv(r'dataset/data.csv')
         
         width = make_range(data4['leaf width'].tolist(), species_list)
         length = make_range(data4['leaf length'].tolist(), species_list)
-        print(f"\nPembagian range lebar daun : {width}\n")
-        print(f"Pembagian range panjang daun : {length}")
+        print(f"Pembagian range lebar daun : {width}\n")
+        print(f"Pembagian range panjang daun : {length}\n")
         # print(type(data4['leaf width'].tolist()[0]))
 
         for i in range(len(species_list)):
@@ -221,11 +275,11 @@ def main():
         for species in species_list:
             species_df.loc[len(species_df)] = [species.name, species.min_length, species.max_length, species.min_width, species.max_width, species.min_area, species.max_area]
         print(species_df)
+        print()
 
         data4 = dafa.read_csv(r'dataset/soal4.csv')
         header4 = data4.columns.tolist()
         temp4 = process_data(data4, header4)
-        print(temp4.values.tolist())
         daun4 = labelling(temp4.values.tolist())
         res4 = dafa.DataFrame(columns=header)
         for daun in daun4:
