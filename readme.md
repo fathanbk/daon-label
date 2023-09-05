@@ -30,6 +30,6 @@ Cara menjalankan program :
 
 - Jalankan __init__.py dengan command : <br>
     - Windows : <br>
-    ```py __init__.py``` or ```python __init__.py```
+    ```py __init__.py``` atau ```python __init__.py```
     - Linux : <br>
     ```python3 __init__.py```
