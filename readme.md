@@ -6,6 +6,9 @@ Anggota Kelompok :
 3. Fathan Bainal Kaffi (1313621037)
 4. Muhammad Alfin Khaerudin (1313621003)
 
+Catatan : <br>
+Versi python yang kami gunakan adalah versi 3.10
+
 Cara menjalankan program : 
 - Buat environment virtual dengan command berikut :
     - Windows : <br>
