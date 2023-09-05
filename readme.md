@@ -17,7 +17,7 @@ Cara menjalankan program :
     - Windows (dengan powershell) : <br>
     ```venv/Scripts/activate.ps1```
     - Linux : <br>
-    ```source linux_venv/bin/activate```
+    ```source venv/bin/activate```
 
 - Install requirement dengan menjalankan command berikut : <br>
     - Windows : <br>
